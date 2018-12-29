@@ -5,3 +5,38 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# cleaning database
+puts "cleaning database"
+Key.destroy_all
+Pad.destroy_all
+User.destroy_all
+
+# database generation
+puts "database generation"
+
+# One user
+puts "user test generation"
+usertest = User.new(
+  email: "testuser@email",
+  password: "000000"
+  )
+# 2 pads
+2.times do
+pad = Pad.new(
+
+  )
+# 31 keys by pad
+31.times do
+key = Key.new(
+
+  )
+
+key.pad = pad
+key.save!
+end
+
+pad.user = usertest
+pad.save!
+end
+usertest.save!
