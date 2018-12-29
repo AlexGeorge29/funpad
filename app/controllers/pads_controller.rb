@@ -7,7 +7,7 @@ class PadsController < ApplicationController
 
   end
   def show
-
+    @pad = Pad.find(params[:id])
   end
   def update
 
@@ -15,4 +15,11 @@ class PadsController < ApplicationController
   def destroy
 
   end
+
+  private
+
+  def pad_params
+    params.require(:pad).permit(:name, :picture, :description, :user_id)
+  end
+
 end
