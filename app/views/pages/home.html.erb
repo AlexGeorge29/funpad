@@ -1,2 +1,25 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="main-title">
+  <h1>FunPad - Play virtual piano or create your owne</h1>
+</div>
+<!-- index of pads user -->
+<% @pads = Pad.all %>
+  <% @pads.each do |pad| %>
+  <!-- card pad -->
+    <div class="pad-card">
+      <%= link_to pad_path(pad) do %>
+      <div class="card-title">
+        <%= pad.name %>
+      </div>
+      <div class="card-content">
+        <%= pad.description %>
+      </div>
+
+      <% end %>
+    </div>
+  <!-- end of card pad -->
+  <% end %>
+
+<!--TODO! New pas template coded in js -->
+<div id="new_pad" class="hidden">
+  <%= render 'shared/new_pad' %>
+</div>
