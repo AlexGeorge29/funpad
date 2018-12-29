@@ -10,10 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_29_015206) do
+ActiveRecord::Schema.define(version: 2018_12_29_020040) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "keys", force: :cascade do |t|
+    t.string "name"
+    t.bigint "pad_id"
+    t.string "sample"
+    t.boolean "empty"
+    t.text "description"
+    t.boolean "loop"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pad_id"], name: "index_keys_on_pad_id"
+  end
+
+  create_table "pads", force: :cascade do |t|
+    t.string "name"
+    t.string "picture"
+    t.text "description"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_pads_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +49,6 @@ ActiveRecord::Schema.define(version: 2018_12_29_015206) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "keys", "pads"
+  add_foreign_key "pads", "users"
 end
