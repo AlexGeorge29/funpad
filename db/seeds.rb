@@ -1,10 +1,4 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
 
 # cleaning database
 puts "cleaning database"
@@ -18,18 +12,32 @@ puts "database generation"
 # One user
 puts "user test generation"
 usertest = User.new(
-  email: "testuser@email",
+  first_name: "Joey",
+  last_name: "Star",
+  description: Faker::Lorem.paragraph,
+  email: "testuser@email.com",
   password: "000000"
   )
 # 2 pads
+n = 0
+picture1 = "https://www.zoo-palmyre.fr/sites/default/files/galerie/img_2574.jpg"
+picture2 = "https://treathouse.com/wp-content/uploads/2018/06/rainbow-donut-sm.jpg"
 2.times do
 pad = Pad.new(
-
+  name: "piano #{n + 1}",
+  description: Faker::Lorem.paragraph,
+  picture: picture"#{n + 1}"
   )
 # 31 keys by pad
-31.times do
+number = 0
+note = [ "", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E"]
+17.times do
 key = Key.new(
-
+  name: "key number#{n+1}"
+  empty: true,
+  loop: false,
+  description: Faker::Lorem.paragraph,
+  note: note[number + 1]
   )
 
 key.pad = pad
