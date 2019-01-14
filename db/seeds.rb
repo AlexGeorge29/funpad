@@ -41,7 +41,8 @@ key = Key.new(
   empty: true,
   loop: false,
   description: Faker::Lorem.paragraph,
-  note: note[number + 1]
+  note: note[number + 1],
+  number: number + 1
   )
 
 key.pad = pad

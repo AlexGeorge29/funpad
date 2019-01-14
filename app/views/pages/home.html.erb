@@ -3,21 +3,23 @@
 </div>
 <!-- index of pads user -->
 <% @pads = Pad.all %>
-  <% @pads.each do |pad| %>
-  <!-- card pad -->
-    <div class="pad-card">
-      <%= link_to pad_path(pad) do %>
-      <div class="card-title">
-        <%= pad.name %>
-      </div>
-      <div class="card-content">
-        <%= pad.description %>
-      </div>
+  <div class="pad-card-container">
+    <% @pads.each do |pad| %>
+    <!-- card pad -->
+      <div class="pad-card">
+        <%= link_to pad_path(pad) do %>
+        <div class="card-title">
+          <%= pad.name %>
+        </div>
+        <div class="card-content">
+          <%= pad.description %>
+        </div>
 
-      <% end %>
-    </div>
-  <!-- end of card pad -->
-  <% end %>
+        <% end %>
+      </div>
+    <!-- end of card pad -->
+    <% end %>
+  </div>
 
 <!--TODO! New pas template coded in js -->
 <div id="new_pad" class="hidden">

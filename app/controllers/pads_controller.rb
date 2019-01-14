@@ -8,6 +8,7 @@ class PadsController < ApplicationController
   end
   def show
     @pad = Pad.find(params[:id])
+    @keys = Key.all
   end
   def update
 

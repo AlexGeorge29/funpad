@@ -4,3 +4,10 @@
 <div class="pad-description">
   <%= @pad.description %>
 </div>
+<div class="keyborad">
+  <% @keys.each do |key| %>
+  <div class="key-pattern">
+    <%= key.note %>
+  </div>
+  <% end %>
+</div>

@@ -1,0 +1,20 @@
+.pad-card {
+  width: 300px;
+  height: 300px;
+  justify-content: center;
+  align-item: center;
+  margin: 50px;
+  background-color: $green;
+
+}
+.card-title {
+  font: $headers-font;
+  font-size: 20px;
+  color: $black;
+  text-align: center;
+}
+.card-content {
+  color: $black;
+  font: $body-font;
+  font-size: 15px;
+}

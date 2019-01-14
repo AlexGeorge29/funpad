@@ -1,1 +1,10 @@
 // Specific CSS for your home-page
+.main-title {
+  font: $headers-font;
+  color: $black;
+  font-size: 40px;
+  text-align: center;
+}
+.pad-card-container {
+  display: flex;
+}
