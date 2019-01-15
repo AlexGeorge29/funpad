@@ -23,17 +23,14 @@ usertest = User.new(
   email: "testuser@email.com",
   password: "000000"
   )
-# 2 pads
-n = -1
-2.times do
-puts "pad generation"
+usertest.save!
+
 pad = Pad.new(
-  name: "piano" + "#{n + 1}",
+  name: "piano1",
   description: Faker::Lorem.paragraph,
-  picture: pictures[n + 1]
+  picture: pictures[0]
   )
 # 31 keys by pad
-puts "key generation"
 number = 0
 17.times do
 key = Key.new(
@@ -52,6 +49,6 @@ end
 
 pad.user = usertest
 pad.save!
-n += 1
-end
-usertest.save!
+
+
+

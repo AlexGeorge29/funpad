@@ -1,6 +1,6 @@
 class KeysController < ApplicationController
   def show
-
+    # @key = Key.find(params[:id])
   end
   def create
 
