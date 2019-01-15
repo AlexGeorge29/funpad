@@ -30,6 +30,8 @@ pad = Pad.new(
   description: Faker::Lorem.paragraph,
   picture: pictures[0]
   )
+pad.user = usertest
+pad.save!
 # 31 keys by pad
 number = 0
 17.times do
@@ -47,8 +49,7 @@ key.save!
 number += 1
 end
 
-pad.user = usertest
-pad.save!
+
 
 
 
